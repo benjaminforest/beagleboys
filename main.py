@@ -1,14 +1,36 @@
 import sys
 import os, sys
-sys.path.append(os.path.join(os.path.dirname(__file__), 'WEBEROES'))
+import importlib
 
-import weberoesbot
+PROJECTS = {
+    'ProjetTradingPythonPOO':{"path":('bot', 'Bot'),
+    },
+    'python-sassou/trad_sassou_bot':{"path":('sassou_bot', 'SassouBot')},
+    'Robot-trading-PNL':{"path":('trading_bot', 'Pnl'),
+    },
+    'Trading-Bot':{},
+    'MSPR_bot_trade':{"path":("selecaoBot", "selecaoBot")},
+    'Projet-Transversal/trading_bot':{},
+    'Site-trading-':{"path":('robotrading', 'RoboTrading')},
+    'WEBEROES':{"path":("jesuisfort", "JeSuisFort")}
+}
 
-robot1 = weberoesbot.WebEroesBot() # hérite de RapTouRobot
+for k, v in PROJECTS.items():
+    sys.path.append(os.path.join(os.path.dirname(__file__), k ))
+    try:
+        if 'path' in v :
+            tmpmod = __import__(v['path'][0])
+            v['bot'] = getattr(tmpmod, v['path'][1])()
+    except Exception:
+        pass
 
 with open("candle_sample.txt", "r") as fp:
     lines = fp.readlines(1000)
     for line in lines:
-        robot1.process_candle(line)
+        for k, v in PROJECTS.items():
+            if "bot" in v : v["bot"].process_candle(line)
 
-print(robot1.gains())
+for k, v in PROJECTS.items():
+    gain = 0
+    if "bot" in v :  gain = v["bot"].gains()
+    print(f"{k} : {gain}")
