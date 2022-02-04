@@ -1,0 +1,21 @@
+[submodule "ProjetTradingPythonPOO"]
+	path = ProjetTradingPythonPOO
+	url = https://github.com/reza0310/ProjetTradingPythonPOO
+[submodule "Site-trading-"]
+	path = Site-trading-
+	url = https://github.com/MVPAlexLeDj/Site-trading-.git
+[submodule "WEBEROES"]
+	path = WEBEROES
+	url = https://github.com/lumen26/WEBEROES.git
+[submodule "MSPR_bot_trade"]
+	path = MSPR_bot_trade
+	url = https://github.com/ReeZeMvp/MSPR_bot_trade
+[submodule "python-sassou"]
+	path = python-sassou
+	url = https://github.com/dimochrab/python-sassou.git
+[submodule "Trading-Bot"]
+	path = Trading-Bot
+	url = https://github.com/Mahen-4/Trading-Bot
+[submodule "Projet-Transversal"]
+	path = Projet-Transversal
+	url = https://github.com/RKamolera/Projet-Transversal.git
