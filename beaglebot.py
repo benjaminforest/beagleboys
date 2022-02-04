@@ -1,12 +1,8 @@
-from abc import ABC
-import abc
-
-class BeagleBot(ABC):
+class BeagleBot():
 
     def __init__(self):
         self.money = 100000
 
-    @abc.abstractmethod
     def process_candle(self, candle_msg:str):
         """This function is called when a new candle_msg is received.
             Candle message is a string of the form:
