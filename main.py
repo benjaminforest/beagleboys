@@ -1,6 +1,11 @@
-from trading_bot import g1bot
+import sys
+import os, sys
+sys.path.append(os.path.join(os.path.dirname(__file__), 'Trading-Bot'))
+sys.path.append(os.path.join(os.path.dirname(__file__), 'Projet-Transversal'))
 
-robot1 = g1bot.Groupe1Robot() # hérite de RapTouRobot
+from trading_bot import auto_bot
+
+robot1 = auto_bot.AutoBot() # hérite de RapTouRobot
 
 with open("candle_sample.txt", "r") as fp:
     lines = fp.readlines(1000)
