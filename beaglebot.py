@@ -4,7 +4,7 @@ class BeagleBot():
         """
         client is used to issue orders
         """
-        self.client
+        self.client = client
 
     def process_candle(self, candle_msg:str):
         """This function is called when a new candle_msg is received.
