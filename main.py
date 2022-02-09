@@ -1,6 +1,7 @@
 import sys
 import os, sys
 import importlib
+from botorderclient import BotOrderClient
 
 PROJECTS = {
     'ProjetTradingPythonPOO':{"path":('bot', 'Bot'),
@@ -20,7 +21,8 @@ for k, v in PROJECTS.items():
     try:
         if 'path' in v :
             tmpmod = __import__(v['path'][0])
-            v['bot'] = getattr(tmpmod, v['path'][1])()
+            v['client'] = BotOrderClient()
+            v['bot'] = getattr(tmpmod, v['path'][1])(v['client'])
     except Exception:
         pass
 
@@ -28,9 +30,11 @@ with open("candle_sample.txt", "r") as fp:
     lines = fp.readlines(1000)
     for line in lines:
         for k, v in PROJECTS.items():
-            if "bot" in v : v["bot"].process_candle(line)
+            if "bot" in v :
+                v["client"].process_candle(line)
+                v["bot"].process_candle(line)
 
 for k, v in PROJECTS.items():
     gain = 0
-    if "bot" in v :  gain = v["bot"].gains()
+    if "bot" in v :  gain = v["client"].gains()
     print(f"{k} : {gain}")
