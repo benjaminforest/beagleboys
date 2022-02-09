@@ -18,6 +18,8 @@ class BotOrderClient():
         for k, v in parsed.items():
             if 'c' in v:
                 self.prices[k] = v['c']
+            if not k in self.actions :
+                self.actions[k] = 0
 
     def sell(self, key:str, quantity:int):
         """
