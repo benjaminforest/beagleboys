@@ -22,3 +22,6 @@
 [submodule "Bot-Trading-EPSI"]
 	path = Bot-Trading-EPSI
 	url = https://github.com/Julilaa/Bot-Trading-EPSI.git
+[submodule "Trading-Bot-ESC"]
+	path = Trading-Bot-ESC
+	url = https://github.com/Xenliath/Trading-Bot-ESC.git

@@ -6,6 +6,7 @@ from botorderclient import BotOrderClient
 PROJECTS = {
     'ProjetTradingPythonPOO':{"path":('bot', 'Bot'),
     },
+    'Trading-Bot-ESC':{"path":('robot', 'Robot')},
     'Bot-Trading-EPSI':{"path":('nemo', 'Nemo')},
     'python-sassou/trad_sassou_bot':{"path":('sassou_bot', 'SassouBot')},
     'Robot-trading-PNL':{"path":('trading_bot', 'Pnl'),
