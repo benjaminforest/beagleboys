@@ -4,13 +4,11 @@ import importlib
 from botorderclient import BotOrderClient
 
 PROJECTS = {
-    'ProjetTradingPythonPOO':{"path":('bot', 'Bot'),
-    },
+    'ProjetTradingPythonPOO':{"path":('bot', 'Bot')},
     'Trading-Bot-ESC':{"path":('robot', 'Robot')},
     'Bot-Trading-EPSI':{"path":('nemo', 'Nemo')},
     'python-sassou/trad_sassou_bot':{"path":('sassou_bot', 'SassouBot')},
-    'Robot-trading-PNL':{"path":('trading_bot', 'Pnl'),
-    },
+    'Robot-trading-PNL':{"path":('trading_bot', 'Pnl')},
     'Trading-Bot':{},
     'MSPR_bot_trade':{"path":("selecaoBot", "selecaoBot")},
     'Projet-Transversal/trading_bot':{},
