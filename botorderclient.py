@@ -48,6 +48,8 @@ class BotOrderClient():
         returns earned money since the creation of the client
         Note : this can be negative.
         """
+        earned_money = self.money - self.start_money
+        stock_value = 0
         for k, v in self.actions.items():
-            self.sell(k, v)
-        return self.money - self.start_money
+            stock_value += self.prices[k]*v
+        return earned_money + stock_value
