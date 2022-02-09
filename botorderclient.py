@@ -17,7 +17,7 @@ class BotOrderClient():
         parsed = json.loads(message)
         for k, v in parsed.items():
             if 'c' in v:
-                self.prices[k] = v['c'][0]
+                self.prices[k] = v['c']
 
     def sell(self, key:str, quantity:int):
         """
