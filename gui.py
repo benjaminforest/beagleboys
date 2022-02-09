@@ -1,7 +1,7 @@
 import plotly.graph_objects as go
 
 import json
-from datetime import date, datetime
+from datetime import datetime
 
 open_prices = []
 high_prices = []
