@@ -27,7 +27,7 @@ for k, v in PROJECTS.items():
         pass
 
 with open("candle_sample.txt", "r") as fp:
-    lines = fp.readlines(1000)
+    lines = fp.readlines()
     for line in lines:
         for k, v in PROJECTS.items():
             if "bot" in v :
