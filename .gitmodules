@@ -19,3 +19,6 @@
 [submodule "Projet-Transversal"]
 	path = Projet-Transversal
 	url = https://github.com/RKamolera/Projet-Transversal.git
+[submodule "Bot-Trading-EPSI"]
+	path = Bot-Trading-EPSI
+	url = https://github.com/Julilaa/Bot-Trading-EPSI.git
