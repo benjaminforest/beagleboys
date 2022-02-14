@@ -10,6 +10,7 @@ class BotOrderClient():
         self.money = self.start_money
         self.actions = {}
         self.prices = {}
+        self.last_raw_time = 0
         self.last_time = 0
 
     def process_candle(self, message):
@@ -19,6 +20,7 @@ class BotOrderClient():
         parsed = json.loads(message)
         for k, v in parsed.items():
             if 'c' in v:
+                self.last_raw_time = v['t']
                 self.last_time = datetime.fromtimestamp(v['t'])
                 self.prices[k] = v['c']
             if not k in self.actions :
