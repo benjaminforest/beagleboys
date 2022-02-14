@@ -29,10 +29,10 @@ def play_candle_file(filename, projects, delay_s=0):
             # time.sleep(delay_s)
             for _, v in projects.items():
                 if "bot" in v :
-                    v["bot"].process_candle(line)
                     v["client"].process_candle(line)
-                    v['gains'] += [v['gains'], v["client"].gains()]
-                    v['time'] += [v['time'], v['client'].last_time]
+                    v["bot"].process_candle(line)
+                    v['gains'] += [v["client"].gains()]
+                    v['time'] += [v['client'].last_time]
 
 def display_gains(projects):
     """ reads projects dicts to display each project recorded earning
