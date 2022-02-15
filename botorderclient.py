@@ -32,7 +32,7 @@ class BotOrderClient():
         ex : sell('AAPL', 100) to sell 100 apple actions.
         """
         if self.actions[key] < quantity:
-            raise f"Trying to sell {quantity} {key} actions but only {self.actions[key]} are available"
+            raise Exception(f"Trying to sell {quantity} {key} actions but only {self.actions[key]} are available")
         self.money += self.prices[key]*quantity
         self.actions[key] -= quantity
 
