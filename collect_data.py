@@ -3,7 +3,6 @@ import websocket
 from shared import shared
 
 FILENAME="sample3.txt"
-global BUFFER
 BUFFER = []
 
 def on_message(ws, message):
@@ -30,6 +29,6 @@ if __name__ == "__main__":
     ws = websocket.WebSocketApp("wss://ws.finnhub.io?token=c7ttg6iad3ifisk2drlg",
                               on_message = on_message,
                               on_error = on_error,
-                              on_close = on_close)
-    ws.on_open = on_open
+                              on_close = on_close,
+                              on_open = on_open)
     ws.run_forever()

@@ -18,7 +18,7 @@ PROJECTS = {
 }
 
 def initialize_projects(projects):
-    """Load projects and ensure use dvariables are initialized
+    """Load projects and ensure used variables are initialized
     """
     for k, v in projects.items():
         try:
