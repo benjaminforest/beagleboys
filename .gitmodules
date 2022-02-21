@@ -25,3 +25,9 @@
 [submodule "Trading-Bot-ESC"]
 	path = Trading-Bot-ESC
 	url = https://github.com/Xenliath/Trading-Bot-ESC.git
+[submodule "Robot-trading-PNL"]
+	path = Robot-trading-PNL
+	url = https://github.com/Pradich95/Robot-trading-PNL.git
+[submodule "JSP"]
+	path = JSP
+	url = https://github.com/SNKR97/JSP

@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 class BotOrderClient():
     """
@@ -9,6 +10,8 @@ class BotOrderClient():
         self.money = self.start_money
         self.actions = {}
         self.prices = {}
+        self.last_raw_time = 0
+        self.last_time = 0
 
     def process_candle(self, message):
         """
@@ -17,7 +20,11 @@ class BotOrderClient():
         parsed = json.loads(message)
         for k, v in parsed.items():
             if 'c' in v:
+                self.last_raw_time = v['t']
+                self.last_time = datetime.fromtimestamp(v['t'])
                 self.prices[k] = v['c']
+            if not k in self.actions :
+                self.actions[k] = 0
 
     def sell(self, key:str, quantity:int):
         """
@@ -46,4 +53,8 @@ class BotOrderClient():
         returns earned money since the creation of the client
         Note : this can be negative.
         """
-        return self.money - self.start_money
+        earned_money = self.money - self.start_money
+        stock_value = 0
+        for k, v in self.actions.items():
+            stock_value += self.prices[k]*v
+        return earned_money + stock_value
