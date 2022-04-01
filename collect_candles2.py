@@ -7,7 +7,7 @@ finnhub_client = finnhub.Client(api_key="c7ttg6iad3ifisk2drlg")
 
 import time
 import datetime
-d = datetime.date(2022,2,1)
+d = datetime.date(2022,3,1)
 start_unixtime = time.mktime(d.timetuple())
 
 d = datetime.datetime.now().date()
@@ -31,7 +31,7 @@ for symbol in shared.SYMBOLS:
 data = pd.concat(dataframes)
 data = data.sort_values(by=['t'])
 
-with open("candle_sample2.txt", 'w') as fp:
+with open("candle_sample_contest.txt", 'w') as fp:
     def write_line(row):
         line = json.dumps({row['SYMBOL']:{'c':row['c'],
                                           'h':row['h'],
