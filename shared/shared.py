@@ -5,14 +5,13 @@ from botorderclient import BotOrderClient
 SYMBOLS = ["AAPL", "TSLA", "ATVI", "DIS", "AMZN", "BINANCE:BTCUSDT"]
 PROJECTS = {
     'Bot-Trading-EPSI':{"path":('nemo', 'Nemo')},
-    'JSP':{"path":('', '')},
+    'JSP':{"path":('First_trading_bot', 'FirstTrade')},
     'MSPR_bot_trade':{"path":("selecaoBot", "selecaoBot")},
     'ProjetTradingPythonPOO':{"path":('bot', 'Bot')},
-    'Projet-Transversal/trading_bot':{},
     'python-sassou/trad_sassou_bot':{"path":('sassou_bot', 'SassouBot')},
     'Robot-trading-PNL':{"path":('trading_bot', 'Pnl')},
     'Site-trading-':{"path":('robotrading', 'RoboTrading')},
-    'Trading-Bot':{},
+    'Trading-Bot':{"path":('trade_bot', 'TradeBot')},
     'Trading-Bot-ESC':{"path":('robot', 'Robot')},
     'WEBEROES':{"path":("jesuisfort", "JeSuisFort")}
 }

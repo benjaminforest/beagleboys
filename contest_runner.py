@@ -27,8 +27,9 @@ global g_projects
 g_projects = shared.PROJECTS
 g_projects = shared.initialize_projects(g_projects)
 
+filename = "candle_sample_contest.txt"
 global g_file
-g_file = open("candle_sample_contest.txt", "r")
+g_file = open(filename, "r")
 
 global g_shares
 g_shares = {}
@@ -54,32 +55,32 @@ g_plot.setLogMode(x=False, y=False)
 global g_linecounter
 g_linecounter = 0
 
-def update():
-    """update graph
-    """
-    global g_projects, g_plot, g_file, g_linecounter
+shared.play_candle_file(filename, g_projects)
+
+line = g_file.readline()
+while line:
+    candle_dict = json.loads(line)
+    for k, v in candle_dict.items():
+        if k in g_shares:
+            g_shares[k][0].append(v['t'])
+            g_shares[k][1].append(v['c'])
+        else:
+            action_plot = g_win.addPlot(col=2, title=k, axisItems = {'bottom': pg.DateAxisItem()})
+            g_win.nextRow()
+            g_shares[k] = ([v['t']], [v['c']], action_plot.plot( pen= rand_color(), name=k ))
     line = g_file.readline()
-    if(line):
-        candle_dict = json.loads(line)
-        for k, v in candle_dict.items():
-            if k in g_shares:
-                g_shares[k][0].append(v['t'])
-                g_shares[k][1].append(v['c'])
-                g_shares[k][2].setData(x=g_shares[k][0], y=g_shares[k][1])
-            else:
-                action_plot = g_win.addPlot(col=2, title=k, axisItems = {'bottom': pg.DateAxisItem()})
-                g_win.nextRow()
-                g_shares[k] = ([v['t']], [v['c']], action_plot.plot( pen= rand_color(), name=k ))
 
-        shared.play_line(line, g_projects)
-        g_linecounter += 1
-        if g_linecounter % 100 == 0:
-            for k, v in g_projects.items():
-                v['curve'].setData(x=v['time'], y=v['gains'])
+for k, v in g_projects.items():
+    v['curve'].setData(x=v['time'], y=v['gains'])
 
-timer = QtCore.QTimer()
-timer.timeout.connect(update)
-timer.start(0)
+for k, v in g_shares.items():
+    v[2].setData(x=v[0], y=v[1])
+
+shared.display_gains(g_projects)
+
+# timer = QtCore.QTimer()
+# timer.timeout.connect(update)
+# timer.start(0)
 
 if __name__ == '__main__':
     pg.exec()
